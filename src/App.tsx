@@ -1,7 +1,7 @@
 import React from 'react'
 import { Art992 } from './992px/Art'
 import { AppStore } from "./AppStore/AppStore"
-//import './css/App.css';
+import './css/App.css';
 
 const appStore = new AppStore();
 
@@ -24,7 +24,7 @@ export default class App extends React.Component {
             <h2>Kunst</h2>
           </div>
         </div>
-        <div className="art">
+        <div className="containerMain">
           <Art992 appStore={appStore}/>
         </div>
       </div>

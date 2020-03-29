@@ -348,7 +348,7 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-		body, html{
+	body, html{
 		height: 100vh;
 		padding: 0px;
 		margin: 0px;
@@ -439,7 +439,7 @@
 		border-top: 10px solid black;
 	}
 
-	.cont {
+	.containerMain {
 		margin-left: 7.5%;
 		width: auto;
 		background-color: white;
@@ -447,30 +447,27 @@
 		justify-content: space-between;
 	}
 	
-	.main_art {
+	.containerMainPic {
 		background-color: white;
 		margin-left: 0;
-	}
-	
-	.main_art.first {
 		position: sticky;
 		top: 0;
 	}
 	
-	.main_art.second {
+	/*.main_art.second {
 		position: sticky;
 		top: 0;
-	}
+	}*/
 	
 	.fixScrollNot.first {
 		position: relative;
 	}
 	
-	.fixScrollNot.second {
+	/*.fixScrollNot.second {
 		position: relative;
-	}
+	}*/
 	
-	.list_art {
+	.listArt {
 		background-color: white;
 		display: flex;
 		flex-direction: row;
@@ -509,12 +506,12 @@
 		vertical-align:bottom;
 	}
 	
-	.contImg {
+	.articleImg {
 		height: auto;
 		position: relative;
 	}
 	
-	.art_text {
+	.artText {
 		position: absolute;
 		background-color: white;
 		z-index: 4;
@@ -525,13 +522,13 @@
 		width: calc(100% - 50px);
 	}
 	
-	.title {
+	.artTextTitle {
 		font-weight: bold;
 		margin: 5px 5px 5px 5px;
 		flex: 1;
 	}
 	
-	.text {
+	.artTextText {
 		margin: 0px 5px 5px 5px;
 		flex: 1;
 	}

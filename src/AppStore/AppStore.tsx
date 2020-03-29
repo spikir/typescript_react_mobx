@@ -5,7 +5,7 @@ export class AppStore {
         model: []
     };
 
-    public get allArt() {
+    public get firstSixArt() {
         fetch('https://meningococcal-distr.000webhostapp.com/nadege/lists.php?page=1')
             .then((response) => response.json())
             .then((responseJson) => {
