@@ -17,10 +17,6 @@ export class AppStore {
         firebase.initializeApp(this.config);
     }
 
-    @observable classFixScroll = {
-        model: []
-    };
-
     scrollList = () => {
         const cont = document.getElementsByClassName("art");
         let i:number = 0;
@@ -42,6 +38,17 @@ export class AppStore {
 
     @observable public feed: string;
 
+    @observable classFixScroll = {
+        model: []
+    };
+
+    @observable public _loaded: Boolean = false;
+
+
+    set loaded(value) {
+        this._loaded = value;
+        console.log(this._loaded);
+    }
 
     @action async firstSixArt() {
         const db = firebase.firestore();
@@ -58,7 +65,6 @@ export class AppStore {
         });
         feed = feed.replace(/[^,{[](?=\n *["[{\d])/gm, '$&,');
         feed += ']';
-        console.log(feed);
         return feed;
     }
     
