@@ -9,9 +9,11 @@ const appStore = new AppStore();
 @observer export default class App extends React.Component {
 
   render() {
-    console.log(appStore._loaded);
       return(
         <div className="container">
+          <div className="header">
+            Nadege
+          </div>
           <div className="loading" style={{visibility: appStore._loaded ? 'hidden': 'visible'}}>
             <div className="loadingContent">
               <img src="https://i.gifer.com/YCZH.gif" />

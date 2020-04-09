@@ -36,6 +36,10 @@ export class AppStore {
         });
     }
 
+    listImg = () => {
+        
+    }
+
     @observable public feed: string;
 
     @observable classFixScroll = {
@@ -53,7 +57,7 @@ export class AppStore {
     @action async firstSixArt() {
         const db = firebase.firestore();
         let feed: string = '[';
-        await db.collection("art").get()
+        await db.collection("art").orderBy('art_id', 'desc').get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 feed += JSON.stringify(doc.data());
