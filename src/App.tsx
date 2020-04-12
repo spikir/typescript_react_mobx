@@ -14,6 +14,31 @@ const appStore = new AppStore();
           <div className="header">
             Nadege
           </div>
+          <div className="navi">
+            <div className="naviWrap">
+              
+              <div className="naviRow">
+                <div className="naviRowOverlay"></div>
+                About
+              </div>
+              <div className="naviRow">
+                <div className="naviRowOverlay"></div>
+                Art
+              </div>
+              <div className="naviRow">
+                <div className="naviRowOverlay"></div>
+                Mode
+              </div>
+              <div className="naviRow">
+                <div className="naviRowOverlay"></div>
+                Photography
+              </div>
+              <div className="naviRow">
+                <div className="naviRowOverlay"></div>
+                Film
+              </div>
+            </div>
+          </div>
           <div className="loading" style={{visibility: appStore._loaded ? 'hidden': 'visible'}}>
             <div className="loadingContent">
               <img src="https://i.gifer.com/YCZH.gif" />

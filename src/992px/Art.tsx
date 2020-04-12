@@ -32,8 +32,8 @@ interface IState {}
             }
             MyArr.map((entry, index) => {
                 if(index == 0) {
-                    const fixScroll: string = appStore.classFixScroll.model.find(element => 'MainPic');
-                    this.list += '<div class="containerMainPic '+fixScroll+'">';
+                    this.list += '<div class="cont">'; //Begin class cont
+                    this.list += '<div class="containerMainPic">';
                         this.list += '<img class="mainPicArt" src='+entry[3]+' />';
                     this.list += '</div>';
                     this.list += '<div class="listArt">'; //introduce class listArt
@@ -58,6 +58,11 @@ interface IState {}
                 }
             });
             this.list += '</div>'; //Finish class listArt
+            this.list += '</div>'; //Finish class cont
+            this.list += '<div class="artMore">';
+            this.list += '<div class="btnMore">More art</div>';
+            this.list += '</div>';
+            
         });
         appStore._loaded = true;
         this.forceUpdate();

@@ -26,6 +26,7 @@
 	.header {
 		text-align: center;
 		font-size: 100px;
+		font-style: italic;
 	}
 	
 	.wrapper {
@@ -35,53 +36,51 @@
 	}
 
 	.container {
-		width: 100vw;
+		width: 100%;
 		background-color: white;
 	}
 	
 	.navi {
-		width: 100%;
-		margin: 0 auto;
-		z-index: 99;
-		background-color: #212121;
-		height: 50px;
-		margin-bottom: 50px;
+		margin-left: 4%;
+		margin-right: 4%;
+		height: 55px;
 	}
 
-	.navi ul {
+	.naviWrap {
+		width: 100%;
+		background-color: #000;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 35px;
+	}
+
+	.naviRow {
 		width: 50%;
-		margin: 0 auto;
-		list-style: none;
-		padding: 0;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		height: 35px;
+		color: #FFF;
+		position: relative;
 	}
 
-	.navi ul li {
-		height: 50px;
-		display: table;
-		float: left;
-		width: calc(100%/4);
-		width: -moz-calc(100%/4);
-		width: -webkit-calc(100%/4);
-		padding: 0;
-		margin: 0;
-		text-align: center;
-	}
-	
-	.navi ul li:hover {
-		background-color: gray;
-	}
-
-	.navi .no-touch li:hover {
-		background-color: #303030;
-	}
-
-	.navi ul li a {
-		color: #FFFFFF;
-		text-decoration: none;
-		height: 100%;
+	.naviRowOverlay {
+		min-height: 0;
+		transition: min-height 0.15s ease-out;
+    	overflow: hidden;
 		width: 100%;
-		display: table-cell;
-		vertical-align: middle;
+		background-color: #000;
+		position: absolute;
+		bottom: 35px;
+	}
+
+	.naviRow:hover .naviRowOverlay {
+		min-height: 20px;
+		transition: min-height 0.25s ease-in;
+		bottom: 35px;
+		background-color: #000;
+		border-top: 5px solid red;
 	}
 	
 	.catTitle {
@@ -117,6 +116,7 @@
 		width: 92%;
 		background-color: white;
 		display: flex;
+		flex-direction: column;
 		justify-content: flex-start;
 		margin-left: 4%;
 	}
@@ -132,38 +132,26 @@
 		overflow: hidden;
 	}
 
+	.cont {
+		display: flex;
+		flex-direction: row;
+	}
+
 	.mainPicArt {
-		position: absolute;
 		max-width: 100%;
 		min-height: 100%;
 	}
 	
-	/*.main_art.second {
-		position: sticky;
-		top: 0;
-	}*/
-	
-	.fixScrollNot.first {
-		position: relative;
-	}
-	
-	/*.fixScrollNot.second {
-		position: relative;
-	}*/
-	
 	.listArt {
 		background-color: white;
 		display: flex;
-		flex-direction: row;
-		justify-content: flex-end;
-		right: 4%;
-		width: 50%;
-		margin-left: 10%;
+		justify-content: space-between;
+		width: calc(100% - 100%*0.8*0.5 - 5%);
+		margin-left: 5%;
 	}
 	
 	.row {
 		flex-direction: column;
-		align-self: flex-start;
 		margin-top: 0;
 	}
 	
@@ -216,5 +204,22 @@
 	.articleTextText {
 		margin: 0px 5px 5px 5px;
 		flex: 1;
+	}
+
+	.artMore {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.btnMore {
+		width: 150px;
+		background-color: red;
+		color: white;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 10px;
 	}
 }

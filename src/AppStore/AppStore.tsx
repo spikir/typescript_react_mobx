@@ -17,29 +17,6 @@ export class AppStore {
         firebase.initializeApp(this.config);
     }
 
-    scrollList = () => {
-        const cont = document.getElementsByClassName("art");
-        let i:number = 0;
-        Array.from(cont).forEach((div:HTMLElement) => {
-            let post: HTMLElement = div;
-            let position = div.offsetTop - document.documentElement.scrollTop;
-            if (position <= 0) {
-                if(innerWidth>=992) {
-                    let str = div.className;
-                    this.classFixScroll.model[str.substr(9, str.length)] = 'fixScroll';
-                }
-            } else {
-                let str = div.className;
-                this.classFixScroll.model[str.substr(9, str.length)] = 'fixScrollNot';
-            }
-            i++;
-        });
-    }
-
-    listImg = () => {
-        
-    }
-
     @observable public feed: string;
 
     @observable classFixScroll = {
