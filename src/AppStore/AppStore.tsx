@@ -29,10 +29,10 @@ export class AppStore {
         this._loaded = value;
     }
 
-    @action async getArts(limit: number) {
+    @action async getArts(limit: number, page: number) {
         const db = firebase.firestore();
         let feed: string = '[';
-        await db.collection("art").orderBy('art_id', 'desc').limit(limit).get()
+        await db.collection("art").orderBy('art_id', 'desc').startAt(page).limit(limit).get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 feed += JSON.stringify(doc.data());
@@ -44,6 +44,7 @@ export class AppStore {
         });
         feed = feed.replace(/[^,{[](?=\n *["[{\d])/gm, '$&,');
         feed += ']';
+        console.log(feed);
         return feed;
     }
 }
