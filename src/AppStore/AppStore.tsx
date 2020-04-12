@@ -19,22 +19,20 @@ export class AppStore {
 
     @observable public feed: string;
 
-    @observable classFixScroll = {
-        model: []
-    };
+    @observable public _loaded: boolean = false;
 
-    @observable public _loaded: Boolean = false;
-
-
-    set loaded(value) {
-        this._loaded = value;
-        console.log(this._loaded);
+    public get loaded() {
+       return this._loaded;
     }
 
-    @action async firstSixArt() {
+    public set loaded(value: boolean) {
+        this._loaded = value;
+    }
+
+    @action async getArts(limit: number) {
         const db = firebase.firestore();
         let feed: string = '[';
-        await db.collection("art").orderBy('art_id', 'desc').get()
+        await db.collection("art").orderBy('art_id', 'desc').limit(limit).get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 feed += JSON.stringify(doc.data());
@@ -48,5 +46,4 @@ export class AppStore {
         feed += ']';
         return feed;
     }
-    
 }

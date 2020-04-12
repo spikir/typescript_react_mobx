@@ -1,5 +1,5 @@
 import React from 'react'
-import { Art992 } from './992px/Art'
+import { ArtMain } from './Art/Art'
 import { AppStore } from "./AppStore/AppStore"
 import './css/App.css'
 import { observer } from "mobx-react"
@@ -39,7 +39,7 @@ const appStore = new AppStore();
               </div>
             </div>
           </div>
-          <div className="loading" style={{visibility: appStore._loaded ? 'hidden': 'visible'}}>
+          <div className="loading" style={{visibility: appStore.loaded ? 'hidden': 'visible'}}>
             <div className="loadingContent">
               <img src="https://i.gifer.com/YCZH.gif" />
             </div>
@@ -50,7 +50,7 @@ const appStore = new AppStore();
             </div>
           </div>
           <div className="containerMain">
-            <Art992 appStore={appStore}/>
+            <ArtMain appStore={appStore}/>
           </div>
           <div id="mode" className="catTitle">
             <div className="catTitleDiv">
@@ -58,7 +58,6 @@ const appStore = new AppStore();
             </div>
           </div>
           <div className="containerMain">
-            <Art992 appStore={appStore}/>
           </div>
           <div id="photography" className="catTitle">
             <div className="catTitleDiv">
@@ -66,7 +65,6 @@ const appStore = new AppStore();
             </div>
           </div>
           <div className="containerMain">
-            <Art992 appStore={appStore}/>
           </div>
           <div id="movie" className="catTitle">
             <div className="catTitleDiv">
@@ -74,7 +72,6 @@ const appStore = new AppStore();
             </div>
           </div>
           <div className="containerMain">
-            <Art992 appStore={appStore}/>
           </div>
         </div>
         );
