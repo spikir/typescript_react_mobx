@@ -58,6 +58,11 @@ const appStore = new AppStore();
               </div>
             </Route>
             <Route exact path="/art">
+              <div className="loading" style={{visibility: appStore.loaded ? 'hidden': 'visible'}}>
+                <div className="loadingContent">
+                  <img src="https://i.gifer.com/YCZH.gif" />
+                </div>
+              </div>
               <ArtAll appStore={appStore} type="art" />
             </Route>
           </Switch>

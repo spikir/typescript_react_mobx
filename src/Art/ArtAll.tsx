@@ -16,6 +16,7 @@ interface IState {}
 @observer export class ArtAll extends React.Component<IProps, IState>  {
 
     public list: string = '';
+    private appStore = this.props.appStore;
 
     constructor(props) {
         super(props);
@@ -23,8 +24,7 @@ interface IState {}
     }
 
     @action async loadData(page: number) {
-        const appStore = this.props.appStore;
-        await appStore.getArts(6, page).then(res => {
+        await this.appStore.getArts(6, page).then(res => {
             const jsonData = JSON.parse(res);
             let MyArr = [];
             let counter = 0;
@@ -56,8 +56,12 @@ interface IState {}
             this.list += '</div>';
             
         });
-        appStore.loaded = true;
+        this.appStore.loaded = true;
         this.forceUpdate();
+    }
+
+    componentWillUnmount(){
+        this.appStore.loaded = false; 
     }
 
     public render() {
