@@ -62,7 +62,7 @@ interface IState {}
             this.list += '<div class="artMore">';
             this.list += '<div class="btnMore">More '+this.props.type+'</div>';
             this.list += '</div>';
-            
+            console.log(this.list);
         });
         appStore.loaded = true;
         this.forceUpdate();

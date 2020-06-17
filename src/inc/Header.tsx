@@ -12,25 +12,29 @@ export default class Header extends React.Component {
                 </div>
                 <div className="navi">
                     <div className="naviWrap">
-                    <   div className="naviRow">
-                            <div className="naviRowOverlay"></div>
-                            <Link to="/about">About</Link>
-                            </div>
-                            <div className="naviRow">
-                            <div className="naviRowOverlay"></div>
-                            <Link to="/art">Art</Link>
-                            </div>
-                            <div className="naviRow">
-                            <div className="naviRowOverlay"></div>
-                            <Link to="/mode">Mode</Link>
-                            </div>
-                            <div className="naviRow">
-                            <div className="naviRowOverlay"></div>
-                            <Link to="/photography">Photography</Link>
-                            </div>
-                            <div className="naviRow">
-                            <div className="naviRowOverlay"></div>
-                            <Link to="/film">Film</Link>
+                        <div className="naviRow">
+                        <div className="naviRowOverlay"></div>
+                        <Link to="/">Home</Link>
+                        </div>
+                        <div className="naviRow">
+                        <div className="naviRowOverlay"></div>
+                        <Link to="/about">About</Link>
+                        </div>
+                        <div className="naviRow">
+                        <div className="naviRowOverlay"></div>
+                        <Link to="/art">Art</Link>
+                        </div>
+                        <div className="naviRow">
+                        <div className="naviRowOverlay"></div>
+                        <Link to="/mode">Mode</Link>
+                        </div>
+                        <div className="naviRow">
+                        <div className="naviRowOverlay"></div>
+                        <Link to="/photography">Photography</Link>
+                        </div>
+                        <div className="naviRow">
+                        <div className="naviRowOverlay"></div>
+                        <Link to="/film">Film</Link>
                         </div>
                     </div>
                 </div>

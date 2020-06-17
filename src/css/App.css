@@ -9,6 +9,10 @@
 		font-family: 'Feijoa Bold';
 	}
 
+	#app {
+		width: 100vw;
+	}
+
 	.loading {
 		position: fixed;
 		height: 100vh;
@@ -57,13 +61,21 @@
 
 	.naviRow {
 		width: 50%;
+		position: relative;
+	}
+
+	.naviRow a {
+		height: 35px;
+		color: #FFF;
 		align-items: center;
 		justify-content: center;
 		display: flex;
-		height: 35px;
-		color: #FFF;
-		position: relative;
+		text-decoration: none;
 	}
+
+	.naviRow a:visited {
+		text-decoration: none;
+	  }
 
 	.naviRowOverlay {
 		min-height: 0;
@@ -152,6 +164,13 @@
 		flex-direction: column;
 		margin-top: 0;
 	}
+
+	.allArtRow {
+		display: flex;
+		flex-direction: row;
+		margin-left: 4%;
+		margin-right: 4%;
+	}
 	
 	.article {
 		position: relative;
@@ -210,6 +229,22 @@
 	}
 
 	.btnMore {
+		width: 150px;
+		background-color: red;
+		color: white;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.loadMore {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.btnLoadMore {
 		width: 150px;
 		background-color: red;
 		color: white;

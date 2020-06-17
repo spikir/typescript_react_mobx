@@ -16,6 +16,10 @@ module.exports = (env) => ({
     filename: 'bundle.js'
   },
 
+  devServer: {
+    historyApiFallback: true,
+  },
+  
   module: {
     rules: [
       {
