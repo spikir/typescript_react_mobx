@@ -1,6 +1,6 @@
 @import url("https://db.onlinewebfonts.com/c/1079aba7293cee85a36e6280bb7f3162?family=Feijoa+Bold");
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
 
 	body, html{
 		padding: 0;
@@ -52,16 +52,39 @@
 	.navi {
 		margin-left: 4%;
 		margin-right: 4%;
-		height: 55px;
+		height: auto;
 	}
 
-	.naviWrap {
+	.btnBurger {
+		visibility: visible;
+	}
+
+	.naviWrapShow {
 		width: 100%;
 		background-color: #000;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: space-between;
+		align-items: center;
 		margin-top: 35px;
+		max-height: 210px;
+		transition-property: all;
+		transition-duration: 1.0s;
+		transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+	}
+
+	.naviWrapShow .naviWrapHidden {
+		width: 100%;
+		background-color: #000;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		max-height: 0px;
+		min-height: 0px;
+	}
+
+	.naviWrapHidden .naviRow a {
+		height: 0px;
 	}
 
 	.naviRow {
@@ -90,7 +113,7 @@
 		text-decoration: none;
 	}
 
-	.naviRowOverlay {
+	/*.naviRowOverlay {
 		min-height: 0;
 		transition: min-height 0.15s ease-out;
     	overflow: hidden;
@@ -106,7 +129,7 @@
 		bottom: 35px;
 		background-color: #000;
 		border-top: 5px solid red;
-	}
+	}*/
 	
 	.catTitle {
 		padding: 0;
@@ -292,7 +315,7 @@
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
 	body, html{
 		padding: 0;
 		margin: 0;
@@ -340,10 +363,14 @@
 		background-color: white;
 	}
 	
+	.btnBurger {
+		visibility: hidden;
+	}
+
 	.navi {
 		margin-left: 4%;
 		margin-right: 4%;
-		height: 55px;
+		height: 90px;
 	}
 
 	.naviWrap {
@@ -632,10 +659,14 @@
 		background-color: white;
 	}
 	
+	.btnBurger {
+		visibility: hidden;
+	}
+
 	.navi {
 		margin-left: 4%;
 		margin-right: 4%;
-		height: 55px;
+		height: 90px;
 	}
 
 	.naviWrap {
