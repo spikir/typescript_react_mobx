@@ -3,8 +3,9 @@ import ReactDOM from "react-dom"
 import parse from 'html-react-parser'
 import { observer } from "mobx-react"
 import { AppStore } from "../AppStore/AppStore"
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import  MainArticle from './MainArticle'
+import  Article from './Article'
 
 
 interface IProps {
@@ -27,65 +28,44 @@ interface IState {}
     async loadData() {
         await this.appStore.getArts(6, 6).then(res => {
             const jsonData = JSON.parse(res);
-            let MyArr = [];
+            var MyArr = [[],[]];
+            let i = 0;
+            let counter = 0;
+            let rows = [];
             for (var key in jsonData) {
-                MyArr.push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
+                if(i == 0) {
+                    MyArr[i].push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
+                    i++;
+                } else {
+                    if(counter == 2) {
+                        i++;
+                        counter = 0;
+                        MyArr.push([]);
+                    }
+                    MyArr[i].push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
+                    counter++;
+                }
             }
             MyArr.forEach((entry, i) =>{
                 if(i==0) {
                     this.list.push(
-                        <MainArticle key={entry[1]} picLink={entry[3]} picTitle={entry[4]} />
+                        <MainArticle key={entry[0][1]} picLink={entry[0][3]} picTitle={entry[0][4]} />
                     )
-                } else if((i+1) % 4 == 0){
-                  /*this.list.push(
-                    <div className="row" key={product.id}>       
-                      <article key={product.id} className="col-md-3"></article>
-                    </div>
-                  )*/
-                }else{
-                    /*this.list.push(<article key={product.id} className="col-md-3"></article>);*/
-                }
-            });
-            /*MyArr.map((entry, index) => {
-                if(index == 0) {
-                    this.list += '<div class="cont">'; //Begin class cont
-                        this.list += '<div class="containerMainPic">';
-                            this.list += '<div class="containerMainArticleTitle">';
-                            this.list += '<img class="mainPicArt" src='+entry[3]+' />';
-                            this.list += '<div class="mainArticleTitle">';
-                                this.list += entry[4];
-                            this.list += '</div>';
-                            this.list += '</div>';
-                        this.list += '</div>';
-                        this.list += '<div class="listArt">'; //introduce class listArt
-                        this.list += '<div class="row">'; //introduce class row
                 } else {
-                    if(index == 3) {
-                        this.list += '<div class="row">'; //introduce class row
-                    }
-                    this.list += '<div class="article">'; //introduce class article
-                        this.list += '<div class="articleImg">'; //introduce class articleImg
-                            this.list += '<img class="listImg" src='+entry[3]+' />';
-                            this.list += '<div class="overlay"></div>';
-                        this.list += '</div>'; //Finish class articleImg
-                        this.list += '<div class="articleText">'; //Introduce class articleText
-                            this.list += '<div class="articleTextTitle">'+entry[4]+'</div>';
-                            this.list += '<div class="articleTextText">'+entry[5]+'</div>';
-                        this.list += '</div>'; //Finish class articleText
-                     this.list += '</div>'; //Finish class article
-                }
-                if(index ==  2|| index == 5) {
-                    this.list += '</div>'; //Finish class row
-                }
-                console.log(index);
+                    rows.push(
+                        <div className="row">
+                            {entry.map((article, index) => {
+                            return <Article key={article[1]} picLink={article[3]} picTitle={article[4]} picText={article[5]} />
+                            })}
+                        </div>
+                    );
+                }                
             });
-            this.list += '</div>'; //Finish class listArt
-            this.list += '</div>'; //Finish class cont
-            this.list += '<div class="artMore">';
-            this.list += '<div class="btnMore">More '+this.props.type+'</div>';
-            this.list += '</div>';
-            console.log(this.list);
-        });*/
+            this.list.push(
+                <div className="listArt">
+                    {rows}
+                </div>
+            );
         });
         this.appStore.loaded = true;
         this.forceUpdate();
@@ -96,16 +76,18 @@ interface IState {}
     }
 
     public render() {
+        console.log(this.props.type);
         return (
             <React.Fragment>
                 <div className="cont">
                     {this.list}
                 </div>
                 <div className="artMore">
-                    <div className="btnMore">More</div>
+                <Link to={'/'+this.props.type}>
+                    <div className="btnMore">More {this.props.type}</div>
+                </Link>
                 </div>
             </React.Fragment>
-            );
+        );
     }
-
 }
