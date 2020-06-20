@@ -2,6 +2,7 @@ import React from 'react'
 import { ArtMain } from './Art/Art'
 import { ArtAll } from './Art/ArtAll'
 import  Header from './inc/Header'
+import  Footer from './inc/Footer'
 import { AppStore } from "./AppStore/AppStore"
 import './css/App.css'
 import { observer } from "mobx-react"
@@ -67,6 +68,7 @@ const appStore = new AppStore();
             </Route>
           </Switch>
       </Router>
+      <Footer />
       </div>
     );
   }

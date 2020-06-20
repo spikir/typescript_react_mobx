@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import { observer } from "mobx-react"
 import { AppStore } from "../AppStore/AppStore"
 import { Link } from 'react-router';
+import  MainArticle from './MainArticle'
 
 
 interface IProps {
@@ -15,7 +16,7 @@ interface IState {}
 
 @observer export class ArtMain extends React.Component<IProps, IState>  {
 
-    public list: string = '';
+    public list = [];
     private appStore = this.props.appStore;
 
     constructor(props) {
@@ -30,14 +31,29 @@ interface IState {}
             for (var key in jsonData) {
                 MyArr.push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
             }
-            MyArr.map((entry, index) => {
+            MyArr.forEach((entry, i) =>{
+                if(i==0) {
+                    this.list.push(
+                        <MainArticle key={entry[1]} picLink={entry[3]} picTitle={entry[4]} />
+                    )
+                } else if((i+1) % 4 == 0){
+                  /*this.list.push(
+                    <div className="row" key={product.id}>       
+                      <article key={product.id} className="col-md-3"></article>
+                    </div>
+                  )*/
+                }else{
+                    /*this.list.push(<article key={product.id} className="col-md-3"></article>);*/
+                }
+            });
+            /*MyArr.map((entry, index) => {
                 if(index == 0) {
                     this.list += '<div class="cont">'; //Begin class cont
                         this.list += '<div class="containerMainPic">';
                             this.list += '<div class="containerMainArticleTitle">';
                             this.list += '<img class="mainPicArt" src='+entry[3]+' />';
                             this.list += '<div class="mainArticleTitle">';
-                            this.list += entry[4];
+                                this.list += entry[4];
                             this.list += '</div>';
                             this.list += '</div>';
                         this.list += '</div>';
@@ -66,9 +82,10 @@ interface IState {}
             this.list += '</div>'; //Finish class listArt
             this.list += '</div>'; //Finish class cont
             this.list += '<div class="artMore">';
-            this.list += '<a class="linkMore" href="/'+this.props.type+'"><div class="btnMore">More '+this.props.type+'</div></a>';
+            this.list += '<div class="btnMore">More '+this.props.type+'</div>';
             this.list += '</div>';
             console.log(this.list);
+        });*/
         });
         this.appStore.loaded = true;
         this.forceUpdate();
@@ -79,6 +96,16 @@ interface IState {}
     }
 
     public render() {
-        return parse(this.list);
+        return (
+            <React.Fragment>
+                <div className="cont">
+                    {this.list}
+                </div>
+                <div className="artMore">
+                    <div className="btnMore">More</div>
+                </div>
+            </React.Fragment>
+            );
     }
+
 }
