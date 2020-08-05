@@ -92,12 +92,14 @@ export default class Header extends React.Component<{}, State> {
                             appear
                             >
                                 <div className="profileAboutMe">
-                                Provident eius nostrum delectus sed nemo quia. Sed exercitationem quasi delectus vitae eos magni et. Dolores recusandae vitae aut. 
-                                Qui possimus assumenda dolores cumque. Alias eligendi tempore praesentium culpa dolore. Et dolores aliquid dolor possimus blanditiis.
-                                 Non necessitatibus ut fugit earum magni consequuntur voluptatem est. Consequatur porro magnam deleniti. 
-                                 Minus voluptatem maiores mollitia soluta. Fuga laboriosam ut quia ea adipisci voluptas et. 
-                                 Laboriosam molestias enim ipsa officiis vero at harum doloremque. Porro nemo ipsam eligendi ut ut. 
-                                 Amet ex molestiae ut reiciendis fugit accusamus qui quia. Vitae est veniam et consequatur. 
+                                    <p>
+                                        Provident eius nostrum delectus sed nemo quia. Sed exercitationem quasi delectus vitae eos magni et. Dolores recusandae vitae aut. 
+                                        Qui possimus assumenda dolores cumque. Alias eligendi tempore praesentium culpa dolore. Et dolores aliquid dolor possimus blanditiis.
+                                        Non necessitatibus ut fugit earum magni consequuntur voluptatem est. Consequatur porro magnam deleniti. 
+                                        Minus voluptatem maiores mollitia soluta. Fuga laboriosam ut quia ea adipisci voluptas et. 
+                                        Laboriosam molestias enim ipsa officiis vero at harum doloremque. Porro nemo ipsam eligendi ut ut. 
+                                        Amet ex molestiae ut reiciendis fugit accusamus qui quia. Vitae est veniam et consequatur. 
+                                    </p>
                                 </div>
                         </CSSTransition>
                     </div>
