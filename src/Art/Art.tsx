@@ -37,7 +37,7 @@ interface IState {}
                     MyArr[i].push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
                     i++;
                 } else {
-                    if(counter == 2) {
+                    if(counter == 3) {
                         i++;
                         counter = 0;
                         MyArr.push([]);

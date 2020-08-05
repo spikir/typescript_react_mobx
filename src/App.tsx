@@ -2,6 +2,7 @@ import React from 'react'
 import { ArtMain } from './Art/Art'
 import { ArtAll } from './Art/ArtAll'
 import  Header from './inc/Header'
+import  HeaderMore from './inc/HeaderMore'
 import  Footer from './inc/Footer'
 import { AppStore } from "./AppStore/AppStore"
 import './css/App.css'
@@ -20,9 +21,9 @@ const appStore = new AppStore();
       return(
         <div className="container">
         <Router>
-          <Header />
             <Switch>
             <Route exact path="/">
+              <Header />
               <div className="loading" style={{visibility: appStore.loaded ? 'hidden': 'visible'}}>
                 <div className="loadingContent">
                   <img src="https://i.gifer.com/YCZH.gif" />
@@ -59,6 +60,7 @@ const appStore = new AppStore();
               </div>
             </Route>
             <Route exact path="/art">
+            <HeaderMore />
               <div className="loading" style={{visibility: appStore.loaded ? 'hidden': 'visible'}}>
                 <div className="loadingContent">
                   <img src="https://i.gifer.com/YCZH.gif" />
