@@ -37,7 +37,7 @@ interface IState {}
                     counter = 0;
                 }
                 counter++;
-                this.list += '<div class="article">'; //introduce class article
+                this.list += '<div class="articleAll">'; //introduce class article
                 this.list += '<div class="articleImg">'; //introduce class articleImg
                 this.list += '<img class="listImg" src='+entry[3]+' />';
                 this.list += '<div class="overlay"></div>';
