@@ -55,10 +55,6 @@ export default class Header extends React.Component<{}, State> {
                             </div>
                             <div className="naviRow">
                             <div className="naviRowOverlay"></div>
-                            <Link to="/about">About</Link>
-                            </div>
-                            <div className="naviRow">
-                            <div className="naviRowOverlay"></div>
                             <Link to="/art">Art</Link>
                             </div>
                             <div className="naviRow">

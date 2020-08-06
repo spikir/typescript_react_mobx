@@ -101,6 +101,7 @@
 		justify-content: center;
 		display: flex;
 		text-decoration: none;
+		text-transform: uppercase;
 	}
 
 	.naviRow a:visited {
@@ -179,6 +180,7 @@
 		height: 100vh;
 		margin-bottom: 30px;
 		overflow: hidden;
+		flex: 1 1 0;
 	}
 
 	.containerMainArticleTitle {
@@ -212,6 +214,7 @@
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
+		flex: 1 1 0;
 	}
 
 	.allArtRow {
@@ -267,6 +270,7 @@
 		font-weight: bold;
 		margin: 5px 5px 5px 5px;
 		flex: 1;
+		text-transform: uppercase;
 	}
 	
 	.articleTextText {
@@ -322,7 +326,7 @@
 		padding: 0;
 		margin: 0;
 		font-family: 'Feijoa Bold';
-		font-size: 13px;
+		font-size: 14px;
 		display: block;
 	}
 
@@ -397,6 +401,8 @@
 		justify-content: center;
 		display: flex;
 		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 16px;
 	}
 
 	.naviRow a:visited {
@@ -475,6 +481,7 @@
 		height: 100vh;
 		margin-bottom: 30px;
 		overflow: hidden;
+		flex: 1 1 0;
 	}
 
 	.containerMainArticleTitle {
@@ -508,6 +515,7 @@
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
+		flex: 1 1 0;
 	}
 
 	.allArtRow {
@@ -561,6 +569,8 @@
 	
 	.articleTextTitle {
 		font-weight: bold;
+		font-size: 18px;
+		text-transform: uppercase;
 		margin: 5px 5px 5px 5px;
 		flex: 1;
 	}
@@ -694,6 +704,7 @@
 		justify-content: center;
 		display: flex;
 		text-decoration: none;
+		text-transform: uppercase;
 	}
 
 	.naviRow a:visited {
@@ -701,11 +712,13 @@
 	}
 
 	.box {
-		height: 100vh;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		position: relative;
+		min-height: 700px;
+		height: 100vh;
+		min-height: 700px;
 	}
 
 	.about {
@@ -754,7 +767,7 @@
 	}
 
 	.profileAboutMe {
-		width: 500px;
+		width: 40%;
 		height: auto;
 		background: #ff6289;
 		transform: translateY(-50%);
@@ -771,7 +784,7 @@
 	}
 
 	.profileAboutMeFade-appear-active {		
-		width: 500px;
+		width: 40%;
 		height: auto;
 		background: #ff6289;
 		transform: translateY(-50%);
@@ -862,12 +875,11 @@
 		margin-left: 0;
 		position: sticky;
 		top: 0;
-		display: block;
+		display: flex;
 		height: 100vh;
 		overflow: hidden;
 		display: flex;
-		flex-basis: 150%;
-		flex-grow: 0;
+		flex: 1 1 0;
 	}
 
 	.containerMainArticleTitle {
@@ -901,6 +913,7 @@
 		display: flex;
 		justify-content: space-between;
 		flex-direction: row;
+		flex: 1 1 0;
 	}
 	
 	.row {
@@ -978,6 +991,7 @@
 		font-weight: bold;
 		margin: 5px 5px 5px 5px;
 		flex: 1;
+		text-transform: uppercase;
 	}
 	
 	.articleTextText {
@@ -1030,7 +1044,7 @@
 
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
 	body {
-	  font-size: 12px;      
+	  font-size: 14px;      
 	}
 }
 
