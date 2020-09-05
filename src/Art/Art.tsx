@@ -26,47 +26,46 @@ interface IState {}
     }
 
     async loadData() {
-        await this.appStore.getArts(6, 6).then(res => {
-            const jsonData = JSON.parse(res);
-            var MyArr = [[],[]];
-            let i = 0;
-            let counter = 0;
-            let rows = [];
-            for (var key in jsonData) {
-                if(i == 0) {
-                    MyArr[i].push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
+        const result = await this.appStore.getArts(6, 6);
+        let jsonData = await JSON.parse(result);
+        var MyArr = [[],[]];
+        let i = 0;
+        let counter = 0;
+        let rows = [];
+        for (var key in jsonData) {
+            if(i == 0) {
+                MyArr[i].push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
+                i++;
+            } else {
+                if(counter == 3) {
                     i++;
-                } else {
-                    if(counter == 3) {
-                        i++;
-                        counter = 0;
-                        MyArr.push([]);
-                    }
-                    MyArr[i].push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
-                    counter++;
+                    counter = 0;
+                    MyArr.push([]);
                 }
+                MyArr[i].push([key, jsonData[key][this.props.type+'_id'], jsonData[key][this.props.type+'_date'], jsonData[key][this.props.type+'_link'], jsonData[key][this.props.type+'_title'], jsonData[key][this.props.type+'_desc']])
+                counter++;
             }
-            MyArr.forEach((entry, i) =>{
-                if(i==0) {
-                    this.list.push(
-                        <MainArticle key={entry[0][1]} picLink={entry[0][3]} picTitle={entry[0][4]} />
-                    )
-                } else {
-                    rows.push(
-                        <div className="row">
-                            {entry.map((article, index) => {
-                            return <Article key={article[1]} picLink={article[3]} picTitle={article[4]} picText={article[5]} />
-                            })}
-                        </div>
-                    );
-                }                
-            });
-            this.list.push(
-                <div className="listArt">
-                    {rows}
-                </div>
-            );
+        }
+        MyArr.forEach((entry, i) =>{
+            if(i==0) {
+                this.list.push(
+                    <MainArticle key={entry[0][1]} picLink={entry[0][3]} picTitle={entry[0][4]} />
+                )
+            } else {
+                rows.push(
+                    <div className="row">
+                        {entry.map((article, index) => {
+                        return <Article key={article[1]} picLink={article[3]} picTitle={article[4]} picText={article[5]} />
+                        })}
+                    </div>
+                );
+            }                
         });
+        this.list.push(
+            <div className="listArt">
+                {rows}
+            </div>
+        );
         this.appStore.loaded = true;
         this.forceUpdate();
     }
