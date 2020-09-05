@@ -1,6 +1,10 @@
 @import url("https://db.onlinewebfonts.com/c/1079aba7293cee85a36e6280bb7f3162?family=Feijoa+Bold");
 @import url("https://db.onlinewebfonts.com/c/364bcd77f75508783b2255c15608d3ae?family=Feijoa+Medium");
 
+a {
+			text-decoration: none;
+}
+
 @media only screen and (max-width: 768px) {
 
 	body, html{
@@ -255,6 +259,7 @@
 		flex-direction: column;
 		margin-left: 4%;
 		margin-right: 4%;
+		margin-top: 50px;
 	}
 
 	.allArtRow .article:nth-of-type(1) {
@@ -325,6 +330,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		text-decoration: none;
 	}
 
 	.loadMore {
@@ -652,6 +658,7 @@
 		flex-direction: column;
 		margin-left: 4%;
 		margin-right: 4%;
+		margin-top: 50px;
 	}
 
 	.allArtRow .article:nth-of-type(1) {
@@ -723,6 +730,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		text-decoration: none;
 	}
 
 	.loadMore {
@@ -1058,6 +1066,7 @@
 		flex-direction: row;
 		margin-left: 4%;
 		margin-right: 4%;
+		margin-top: 50px;
 	}
 
 	.allArtRow .articleAll:nth-of-type(1) {
@@ -1142,6 +1151,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		text-decoration: none;
 	}
 
 	.loadMore {
