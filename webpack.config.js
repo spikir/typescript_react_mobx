@@ -1,10 +1,20 @@
-const path = require('path')
+const path = require('path');
+var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = (env) => ({
   mode: env === 'prod' ? 'production' : 'development',
-  
+  devtool: false,
   entry: {
     client: './src/index.tsx',
+  },
+
+  performance: {
+    maxEntrypointSize: 5120000,
+    maxAssetSize: 5120000
+  },
+
+  optimization: {
+    minimize: false //Update this to true or false
   },
 
   resolve: {
@@ -46,4 +56,7 @@ module.exports = (env) => ({
       },
     ],
   },
+  plugins: [
+    new LodashModuleReplacementPlugin,
+  ]
 })

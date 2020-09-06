@@ -15,14 +15,16 @@ export default class Article extends React.Component<ArtProps> {
     render() {
         return (
             <div className="article">
-            <div className="articleImg">
-                <img className="listImg" src={this.props.picLink} />
-                <div className="overlay"></div>
-            </div>
-            <div className="articleText">
-                <div className="articleTextTitle">{this.props.picTitle}</div>
-            <div className="articleTextText">{this.props.picText}</div>
-            </div>
+                <div className="artWrap">
+                    <div className="articleImg">
+                        <img className="listImg" src={this.props.picLink} />
+                        <div className="overlay"></div>
+                    </div>
+                    <div className="articleText">
+                        <div className="articleTextTitle">{this.props.picTitle}</div>
+                    <div className="articleTextText">{this.props.picText}</div>
+                    </div>
+                </div>
             </div>
         );
     };

@@ -15,7 +15,15 @@ import {
 
 const appStore = new AppStore();
 
-@observer export default class App extends React.Component {
+
+interface IProps {
+}
+
+interface IState {
+  height: number,
+}
+
+@observer export default class App extends React.Component<IProps, IState>  {
 
   render() {
       return(
@@ -34,7 +42,7 @@ const appStore = new AppStore();
                   <h2>Art</h2>
                 </div>
               </div>
-              <div className="containerMain">
+              <div id="container-art-main" className="containerMain">
                 <ArtMain appStore={appStore} type="art" />
               </div>
               <div id="mode" className="catTitle">

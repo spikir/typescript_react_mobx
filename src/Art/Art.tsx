@@ -10,12 +10,10 @@ import  Article from './Article'
 
 interface IProps {
     appStore: AppStore,
-    type: string
+    type: string,
 }
 
-interface IState {}
-
-@observer export class ArtMain extends React.Component<IProps, IState>  {
+@observer export class ArtMain extends React.Component<IProps>  {
 
     public list = [];
     private appStore = this.props.appStore;
@@ -23,7 +21,7 @@ interface IState {}
     constructor(props) {
         super(props);
         this.loadData();
-    }
+    }    
 
     async loadData() {
         const result = await this.appStore.getArts(6, 6);
@@ -62,7 +60,7 @@ interface IState {}
             }                
         });
         this.list.push(
-            <div className="listArt">
+            <div id="list-art" className="listArt">
                 {rows}
             </div>
         );
@@ -75,7 +73,6 @@ interface IState {}
     }
 
     public render() {
-        console.log(this.props.type);
         return (
             <React.Fragment>
                 <div className="cont">
